@@ -1,0 +1,28 @@
+
+> my-v0-project@0.1.0 dev
+> next dev
+
+   ▲ Next.js 16.0.3 (Turbopack)
+   - Local:         http://localhost:3000
+   - Network:       http://172.22.54.176:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+
+   We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+   The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+   	- include was updated to add '.next/dev/types/**/*.ts'
+
+   The following mandatory changes were made to your tsconfig.json:
+
+   	- jsx was set to react-jsx (next.js uses the React automatic runtime)
+
+ ✓ Ready in 5s
+ ○ Compiling / ...
+ GET / 200 in 3.2s (compile: 3.1s, render: 82ms)
+ GET /login 200 in 310ms (compile: 284ms, render: 26ms)
+ GET /dashboard 200 in 292ms (compile: 282ms, render: 10ms)
+ GET /upload 200 in 300ms (compile: 288ms, render: 12ms)
+ GET /upload 200 in 49ms (compile: 33ms, render: 16ms)
+[?25h

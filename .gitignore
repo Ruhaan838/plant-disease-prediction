@@ -5,6 +5,15 @@ __pycache__/
 env/
 venv/
 .env
+.env.local
 data/
 logs/
 .DS_Store
+
+# Next.js
+.next/
+out/
+node_modules/
+
+# Vercel
+.vercel
