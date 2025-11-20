@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.onnx
+env/
+venv/
+.env
+data/
+logs/
+.DS_Store

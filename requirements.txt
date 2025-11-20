@@ -1,0 +1,14 @@
+torch>=1.13.0
+torchvision>=0.14.0
+numpy
+Pillow
+onnx
+onnxruntime
+scikit-learn
+fastapi
+uvicorn[standard]
+python-multipart
+aiofiles
+requests
+pytest
+kagglehub

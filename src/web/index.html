@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plant Disease Predictor</title>
+  </head>
+  <body>
+    <style>
+      body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; }
+      .uploader { display:flex; gap:12px; align-items:center }
+      #preview img { max-width: 300px; border: 1px solid #ddd; padding:4px }
+      .pred { margin-top: 12px }
+      table { border-collapse: collapse; margin-top:10px }
+      td, th { border: 1px solid #eee; padding: 6px 10px }
+    </style>
+
+    <h1>Plant Disease Predictor</h1>
+    <div class="uploader">
+      <input id="file" type="file" accept="image/*" />
+      <button id="send">Upload & Predict</button>
+    </div>
+    <div id="preview"></div>
+    <div id="status"></div>
+    <div class="pred"><strong>Top predictions</strong>
+      <div id="preds"></div>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
