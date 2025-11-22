@@ -121,7 +121,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Model Information */}
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
+          {/* <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
             <h2 className="text-xl font-semibold mb-4">AI Model Information</h2>
             {isLoading ? (
               <Card>
@@ -225,7 +225,7 @@ export default function DashboardPage() {
                 </Card>
               </div>
             ) : null}
-          </div>
+          </div> */}
         </div>
       </main>
     </div>

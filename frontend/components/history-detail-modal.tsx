@@ -20,7 +20,8 @@ export function HistoryDetailModal({ item, isOpen, onClose, onDelete, isDeleting
   if (!item) return null
 
   const isHealthy = item.disease.toLowerCase() === "healthy"
-  const confidencePercent = Math.round(item.confidence * 100)
+  const confidencePercentValue = item.confidence * 100
+  const confidencePercent = confidencePercentValue.toFixed(2)
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -34,7 +35,6 @@ export function HistoryDetailModal({ item, isOpen, onClose, onDelete, isDeleting
             )}
             {item.disease}
           </DialogTitle>
-          <DialogDescription>Prediction details and treatment recommendations</DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6">
@@ -53,7 +53,7 @@ export function HistoryDetailModal({ item, isOpen, onClose, onDelete, isDeleting
               <span className="text-sm text-muted-foreground">Confidence Level</span>
               <Badge variant={isHealthy ? "default" : "destructive"}>{confidencePercent}%</Badge>
             </div>
-            <Progress value={confidencePercent} className="h-2" />
+            <Progress value={confidencePercentValue} className="h-2" />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
@@ -65,13 +65,7 @@ export function HistoryDetailModal({ item, isOpen, onClose, onDelete, isDeleting
               <p className="font-medium text-foreground">{item.plantType}</p>
             </div>
 
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Activity className="h-4 w-4" />
-                <span>Model Version</span>
-              </div>
-              <p className="font-medium text-foreground">{item.modelVersion}</p>
-            </div>
+       
 
             <div className="space-y-1 col-span-2">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -84,14 +78,14 @@ export function HistoryDetailModal({ item, isOpen, onClose, onDelete, isDeleting
 
           <Separator />
 
-          <div className="space-y-2">
+          {/* <div className="space-y-2">
             <h4 className="font-semibold text-foreground">
               {isHealthy ? "Care Recommendations" : "Treatment Recommendations"}
             </h4>
             <p className="text-sm text-muted-foreground leading-relaxed">{item.treatment}</p>
-          </div>
+          </div> */}
 
-          <Separator />
+          {/* <Separator /> */}
 
           <div className="flex gap-3">
             <Button onClick={() => onDelete(item.id)} disabled={isDeleting} variant="destructive" className="gap-2">

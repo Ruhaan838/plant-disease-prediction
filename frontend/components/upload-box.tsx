@@ -3,16 +3,18 @@
 import type React from "react"
 
 import { useCallback, useState } from "react"
+import Image from "next/image"
 import { Upload, ImageIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface UploadBoxProps {
   onFileSelect: (file: File) => void
   selectedFile: File | null
+  previewUrl?: string | null
   disabled?: boolean
 }
 
-export function UploadBox({ onFileSelect, selectedFile, disabled }: UploadBoxProps) {
+export function UploadBox({ onFileSelect, selectedFile, previewUrl, disabled }: UploadBoxProps) {
   const [isDragging, setIsDragging] = useState(false)
 
   const handleDragOver = useCallback(
@@ -78,7 +80,17 @@ export function UploadBox({ onFileSelect, selectedFile, disabled }: UploadBoxPro
         id="file-upload"
       />
 
-      {selectedFile ? (
+      {previewUrl ? (
+        <div className="flex flex-col items-center gap-4 animate-in fade-in zoom-in-90 duration-500">
+          <div className="relative w-full max-w-2xl aspect-4/3 md:aspect-video h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden bg-muted shadow-lg">
+            <Image src={previewUrl} alt="Preview" fill className="object-cover" />
+          </div>
+          <div className="text-center">
+            <p className="font-medium text-foreground text-sm">{selectedFile?.name}</p>
+            <p className="text-xs text-muted-foreground">{selectedFile ? `${(selectedFile.size / 1024 / 1024).toFixed(2)} MB` : ""}</p>
+          </div>
+        </div>
+      ) : selectedFile ? (
         /* Replaced motion.div with regular div and CSS animation */
         <div className="flex flex-col items-center gap-4 animate-in fade-in zoom-in-90 duration-500">
           <div className="relative">

@@ -48,7 +48,7 @@ export function HistoryFilters({ filters, onFiltersChange, onReset }: HistoryFil
           </div>
         </div>
 
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <Label htmlFor="plant-type" className="text-sm">
             Plant Type
           </Label>
@@ -67,9 +67,9 @@ export function HistoryFilters({ filters, onFiltersChange, onReset }: HistoryFil
               ))}
             </SelectContent>
           </Select>
-        </div>
+        </div> */}
 
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <Label htmlFor="disease" className="text-sm">
             Disease
           </Label>
@@ -88,16 +88,16 @@ export function HistoryFilters({ filters, onFiltersChange, onReset }: HistoryFil
               ))}
             </SelectContent>
           </Select>
-        </div>
+        </div> */}
 
-        <div className="flex items-end">
+        {/* <div className="flex items-end">
           {hasActiveFilters && (
             <Button onClick={onReset} variant="outline" className="w-full gap-2 bg-transparent">
               <X className="h-4 w-4" />
               Clear Filters
             </Button>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   )

@@ -14,7 +14,7 @@ interface HistoryCardProps {
 
 export function HistoryCard({ item, onViewDetails }: HistoryCardProps) {
   const isHealthy = item.disease.toLowerCase() === "healthy"
-  const confidencePercent = Math.round(item.confidence * 100)
+  const confidencePercent = (item.confidence * 100).toFixed(2)
 
   return (
     /* Replaced motion.div with regular div and hover transition */
@@ -31,7 +31,7 @@ export function HistoryCard({ item, onViewDetails }: HistoryCardProps) {
           unoptimized
         />
         <div className="absolute top-2 right-2">
-          <Badge variant={isHealthy ? "default" : "destructive"} className="backdrop-blur-sm bg-background/80">
+          <Badge variant={isHealthy ? "default" : "destructive"} className="backdrop-blur-sm bg-black">
             {confidencePercent}%
           </Badge>
         </div>

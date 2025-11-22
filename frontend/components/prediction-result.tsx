@@ -26,7 +26,8 @@ export function PredictionResultCard({ result }: PredictionResultProps) {
   }
 
   const isHealthy = disease.toLowerCase().includes("healthy")
-  const confidencePercent = Math.round(result.top.prob * 100)
+  const confidencePercentValue = result.top.prob * 100
+  const confidencePercent = confidencePercentValue.toFixed(2)
 
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -55,7 +56,7 @@ export function PredictionResultCard({ result }: PredictionResultProps) {
               <span className="text-muted-foreground">Confidence Level</span>
               <span className="font-medium">{confidencePercent}%</span>
             </div>
-            <Progress value={confidencePercent} className="h-2" />
+            <Progress value={confidencePercentValue} className="h-2" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -67,13 +68,7 @@ export function PredictionResultCard({ result }: PredictionResultProps) {
               <p className="font-medium text-foreground">{plantType || "Unknown"}</p>
             </div>
 
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Activity className="h-4 w-4" />
-                <span>Model Version</span>
-              </div>
-              <p className="font-medium text-foreground">{result.modelVersion}</p>
-            </div>
+        
           </div>
 
           {result.topk && result.topk.length > 1 && (
@@ -83,7 +78,7 @@ export function PredictionResultCard({ result }: PredictionResultProps) {
                 {result.topk.slice(1, 4).map((pred, idx) => (
                   <div key={idx} className="flex items-center justify-between text-sm">
                     <span className="text-muted-foreground">{pred.label}</span>
-                    <span className="font-medium">{Math.round(pred.prob * 100)}%</span>
+                    <span className="font-medium">{(pred.prob * 100).toFixed(2)}%</span>
                   </div>
                 ))}
               </div>

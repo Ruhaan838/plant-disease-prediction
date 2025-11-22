@@ -58,7 +58,7 @@ export default function UploadPage() {
       // Extract disease name for toast
       const label = prediction.top.label || prediction.top.raw || ""
       const disease = label.includes(" - ") ? label.split(" - ")[1]?.trim() || label : label
-      const confidencePercent = Math.round(prediction.top.prob * 100)
+      const confidencePercent = (prediction.top.prob * 100).toFixed(2)
 
       toast({
         title: "Analysis complete",
@@ -125,19 +125,7 @@ export default function UploadPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Upload Section */}
             <div className="space-y-4">
-              <UploadBox onFileSelect={handleFileSelect} selectedFile={selectedFile} disabled={isAnalyzing} />
-
-              {previewUrl && (
-                <div className="animate-in fade-in zoom-in-95 duration-500">
-                  <Card>
-                    <CardContent className="p-4">
-                      <div className="relative aspect-square rounded-lg overflow-hidden bg-muted">
-                        <Image src={previewUrl || "/placeholder.svg"} alt="Preview" fill className="object-cover" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              )}
+              <UploadBox onFileSelect={handleFileSelect} selectedFile={selectedFile} previewUrl={previewUrl} disabled={isAnalyzing} />
 
               <div className="flex items-center justify-between p-4 bg-card rounded-lg border border-border">
                 <div className="space-y-0.5">
